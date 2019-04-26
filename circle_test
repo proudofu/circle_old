@@ -14,5 +14,6 @@
 # $2: Cam number
 
 module add mit/matlab/2014a
-matlab -nodisplay -r "addpath(genpath('/om/user/kmaher/scripts/matlab/circle/MATLAB')), TrackerAutomatedScript2('20190410_ASH_05_35_Cam6.avi', 'scale', '20190410_measureCam6.avi', 'NumWorms', [30, 80]), exit;" 
+cd /om/user/kmaher/data/circle_videos
+matlab -nodisplay -r "addpath(genpath('/om/user/kmaher/scripts/matlab/circle/MATLAB')), addpath(genpath('/om/user/kmaher/data/circle_videos')), TrackerAutomatedScript2('20190410_ASH_05_35_Cam6.avi', 'scale', '20190410_measureCam6.avi', 'NumWorms', [30, 80]), exit;" 
 

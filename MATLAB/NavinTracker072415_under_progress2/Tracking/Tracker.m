@@ -296,9 +296,9 @@ if(does_this_file_need_making(procFrame_file))
         
     % save the background and ring as a pdf
     hidden_figure(15);
-    imshow(global_background);
-    hold on;
-    plot(Ring.RingX, Ring.RingY,'.g','markersize',2);
+    %imshow(global_background);
+    %hold on;
+    %plot(Ring.RingX, Ring.RingY,'.g','markersize',2);
     if(isfield(Ring,'arena_name'))
         for(t=1:length(Ring.arena_name))
             text(Ring.arena_center(t,1), Ring.arena_center(t,2), fix_title_string(Ring.arena_name{t}), 'FontSize',18,'FontName','Helvetica','HorizontalAlignment','center','color','g');
