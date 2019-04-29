@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH --output=/om/user/kmaher/log/test_%j.txt
+#SBATCH -n1
+#SBATCH --error=/om/user/kmaher/log/test_%j.err
+#SBATCH --job-name=test_j%
+#SBATCH --nodes=1
+#SBATCH --mem=40000
+#SBATCH --time=40:00:00
+
+echo "great job"

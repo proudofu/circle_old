@@ -213,7 +213,8 @@ if( ((manual_flag==1) && ((NumFoundWorms_initial < Prefs.DefaultNumWormRange(1))
     for(i=1:length(objects))
         local_numWorms_vector(i) = max(1, round(objects(i).Area/meanWormSize(1)));
     end
-    
+  
+    % add_delete_worms_with_mouse an empty function that returns the unmodified arguments and does not ask for GUI input. -Kamal 4/29/2019
     objects2 = add_delete_worms_with_mouse(Mov.cdata, objects, local_numWorms_vector); % Mov.cdata
     added_worms = (length(objects2) -  length(objects));
     target_numworms = NumWorms + added_worms;

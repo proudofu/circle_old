@@ -151,6 +151,18 @@ while(i<=length(varargin))
     end
 end
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Kamal %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%% Decided to parse in the shell script instead to minimize hacking to this script.
+% Determining appropriate measureCam file given cam number in video file name
+%filename_parts      = strsplit(directoryListFilename, '_');
+%filename_last_part  = char(filename_parts(end));
+%cam_number          = filename_last_part(4); % Hard-coded for single-digit cam numbers
+%date                = char(filename_parts(1));
+%pixelsize_MovieName = sprintf('%s_measureCam%s.avi', date, cam_number);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 scaleRing = [];
 if(~isempty(pixelsize_MovieName))
     scaleRing = get_pixelsize_from_arbitrary_object(pixelsize_MovieName);
