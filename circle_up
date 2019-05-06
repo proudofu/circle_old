@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# $1 is date/name of folder to process
+
+# 1. Select rings locally using GUI
+PROCEED="n"
+echo "Get rings? (y/n)"
+read PROCEED
+if [ $PROCEED == "y" ]; then
+        matlab.exe -r "addpath(genpath('C:/Users/kamal/Documents/MATLAB/circle')), getRings('$1'), quit"
+
+        PROCEED="n"
+        while [ $PROCEED != "y" ]
+        do
+                echo "Got rings? (y/n)"
+                read PROCEED
+        done
+fi
+
+# 2. Mount hard drive (assuming it was unplugged to download vids from behavior computers)
+PROCEED="n"
+echo "Remount? (y/n)"
+read PROCEED
+if [ $PROCEED == "y" ]; then
+        sudo umount /mnt/g
+        sudo rmdir /mnt/g
+        sudo mkdir /mnt/g
+        sudo mount -t drvfs G: /mnt/g
+fi
+
+# 3. Copy over folders containing video files and new fields.mat files
+echo "Copying $1 to cluster"
+rsync -arv -P /mnt/g/Experiments/$1 kmaher@openmind7.mit.edu:/om/user/kmaher/data/circle_videos
