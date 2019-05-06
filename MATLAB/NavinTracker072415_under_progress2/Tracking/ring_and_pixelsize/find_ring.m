@@ -3,26 +3,28 @@ function Ring = find_ring(global_background, localpath, FilePrefix, manualflag)
 
 global Prefs;
 
-if(nargin==1)
-    if(ischar(global_background))
-        if(isempty(global_background))
-            Ring = [];
-            return;
-        end
-        Moviename = global_background;
-        clear('global_background');
-        global_background = calculate_background(Moviename);
-        [localpath, FilePrefix] = fileparts(Moviename);
-    end
-end
+% if(nargin==1)
+%     if(ischar(global_background))
+%         if(isempty(global_background))
+%             Ring = [];
+%             return;
+%         end
+%         Moviename = global_background;
+%         clear('global_background');
+%         global_background = calculate_background(Moviename);
+%         [localpath, FilePrefix] = fileparts(Moviename);
+%     end
+% end
+% 
+% if(nargin<4)
+%     manualflag=1;
+% end
+% 
+% if(~isempty(localpath))
+%     localpath = sprintf('%s%s',localpath,filesep);
+% end
 
-if(nargin<4)
-    manualflag=1;
-end
-
-if(~isempty(localpath))
-    localpath = sprintf('%s%s',localpath,filesep);
-end
+Ring = [];
 
 ringfile = sprintf('%s%s.Ring.mat',localpath, FilePrefix);
 
