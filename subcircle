@@ -5,17 +5,21 @@
 #SBATCH --job-name=subcircle_j%
 #SBATCH --nodes=1
 #SBATCH --mem=40000
-#SBATCH --time=40:00:00
+#SBATCH --time=100:00:00
 
 # $1: Name of video
+vidfolder=$1
+date=${vidfolder%-*}
+echo $vidfolder
+echo $date
 #echo $1
-filename="$1"
-vidname=${filename##*/}
-#echo $vidname
+#vidfolder=$1
+#vidfile=$vidfolder/${vidfolder##*/}.avi
+#echo $vidfile
 
 # Parse date and cam number info from video filename.
-date=${vidname%%_*}
-cam_dot_avi=${vidname##*_}
+#date=${vidname%%_*}
+#cam_dot_avi=${vidname##*_}
 #cam=${cam_dot_avi%%.*}
 #echo $date
 #echo $cam_dot_avi
@@ -30,5 +34,6 @@ cam_dot_avi=${vidname##*_}
 
 # Load matlab and launch tracker command.
 module add mit/matlab/2014a
-cd /om/user/kmaher/data/circle_videos/$date
-matlab -nodisplay -r "addpath(genpath('/om/user/kmaher/scripts/matlab/circle/MATLAB')), addpath(genpath('/om/user/kmaher/data/circle_videos')), disp('${date}_measure${cam_dot_avi}'), TrackerAutomatedScript2('$vidname', 'scale', '${date}_measure${cam_dot_avi}', 'NumWorms', [30, 80]), exit;" 
+#cd /om/user/kmaher/data/circle_videos/$date
+echo /om/user/kmaher/data/circle_videos/$date/$vidfolder/${vidfolder}.avi
+matlab -nodisplay -r "addpath(genpath('/om/user/kmaher/scripts/matlab/circle/MATLAB')), addpath(genpath('/om/user/kmaher/data/circle_videos')), TrackerAutomatedScript2('/om/user/kmaher/data/circle_videos/$date/$vidfolder/${vidfolder}.avi', 'scale', '/om/user/kmaher/data/circle_videos/measureCam.avi', 'NumWorms', [30, 80]), exit;" 
