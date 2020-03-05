@@ -3,7 +3,7 @@ function getRings(date)
     % Launches getRing for each .avi 
     
     % Establish path to date folder
-    path  = 'G:/Experiments'; % Hard-coded for Kamal's file system
+    path  = 'X:/circle_data_local';
     folders = dir(sprintf('%s%s%s', path, filesep, date));
     
     % Display encouraging and informative instructions on selecting the ROI

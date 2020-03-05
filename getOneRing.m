@@ -9,8 +9,8 @@ function getOneRing(date, FilePrefix)
 
     
     % Set up paths and dumb variables for Navin scripts
-    PathName = sprintf('G:%sExperiments%s%s', filesep, filesep, date); % hard-coded for Kamal's hard drive.
-    pixelsize_MovieName = sprintf('G:%sExperiments%smeasureCam.avi', filesep, filesep);
+    PathName = sprintf('X:%scircle_data_local%s%s', filesep, filesep, date);
+    pixelsize_MovieName = sprintf('X:%circle_data_local%smeasureCam.avi', filesep, filesep);
     
     
     % Dumb dependencies for Navin scripts
