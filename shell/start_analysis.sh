@@ -28,24 +28,24 @@ if [ $PROCEED == "y" ]; then
 fi
 
 # 3. Select rings locally using GUI
-PROCEED="n"
-echo "Get rings? (y/n)"
-read PROCEED
-if [ $PROCEED == "y" ]; then
-        mat_versions=(/mnt/c/"Program Files"/MATLAB/*)
-        num_versions=${#mat_versions[@]}
-        let latest_version_index=$num_versions-1
-        latest_version_path=${mat_versions[$latest_version_index]}
-        latest_version=${latest_version_path##*/}
-        /mnt/c/"Program Files"/MATLAB/$latest_version/bin/matlab.exe -r "addpath(genpath('\\\\wsl$\\Ubuntu\\home\\$USER\\circle\\matlab)), getRings('$2'), quit"
-
-        PROCEED="n"
-        while [ $PROCEED != "y" ]
-        do
-                echo "Got rings? (y/n)"
-                read PROCEED
-        done
-fi
+#PROCEED="n"
+#echo "Get rings? (y/n)"
+#read PROCEED
+#if [ $PROCEED == "y" ]; then
+#        mat_versions=(/mnt/c/"Program Files"/MATLAB/*)
+#        num_versions=${#mat_versions[@]}
+#        let latest_version_index=$num_versions-1
+#        latest_version_path=${mat_versions[$latest_version_index]}
+#        latest_version=${latest_version_path##*/}
+#        /mnt/c/"Program Files"/MATLAB/$latest_version/bin/matlab.exe -r "addpath(genpath('\\\\wsl$\\Ubuntu\\home\\$USER\\circle\\matlab)), getRings('$2'), quit"
+#
+#        PROCEED="n"
+#        while [ $PROCEED != "y" ]
+#        do
+#                echo "Got rings? (y/n)"
+#                read PROCEED
+#        done
+#fi
 
 # 4. Copy over folders containing video files and new fields.mat files
 echo "Copying $2 to cluster"
