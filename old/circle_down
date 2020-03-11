@@ -1,0 +1,8 @@
+#!/bin/bash
+
+date=$1
+
+for folder in /mnt/g/experiments/$date/*; do
+	prefix=${folder##*/}
+	scp kmaher@openmind7.mit.edu:/om/user/kmaher/data/circle_videos/$date/$prefix/${prefix}.linkedTracks.mat $folder
+done
